@@ -1,42 +1,77 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.App {
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App-header {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+input {
+  width: 350px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+}
+
+button {
+  width: 380px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.movie {
+  background: white;
+  color: black;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+  width: 200px; /* Largura fixa para os cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+@media (min-width: 1000px) {
+  .movie {
+    flex: 1 1 calc(20% - 40px); /* Para garantir 5 colunas */
+    margin: 10px 20px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 999px) {
+  .movie {
+    flex: 1 1 calc(33.33% - 20px); /* Para garantir 3 colunas em telas menores */
+    margin: 10px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 600px) {
+  .movie {
+    flex: 1 1 calc(50% - 20px); /* Para garantir 2 colunas em telas menores */
+    margin: 10px;
   }
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@media (max-width: 400px) {
+  .movie {
+    flex: 1 1 100%; /* Para garantir 1 coluna em telas muito pequenas */
+    margin: 10px 0;
+  }
 }
