@@ -11,18 +11,20 @@
   color: white;
 }
 
-input {
-  width: 350px;
-  padding: 10px;
-  margin: 10px;
-  font-size: 16px;
+.input-buscar {
+  height: 40px;
+  width: 380px;
 }
 
-button {
+.button-buscar {
+  border-radius: 5px;
   width: 380px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+  margin-top: 20px;
+}
+
+input, button {
+  max-width: 90%; /* Para garantir que não causem estouro */
+  box-sizing: border-box;
 }
 
 .movies {
@@ -74,4 +76,18 @@ button {
     flex: 1 1 100%; /* Para garantir 1 coluna em telas muito pequenas */
     margin: 10px 0;
   }
+}
+
+.movie-details {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto; /* Centraliza o card de detalhes */
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }

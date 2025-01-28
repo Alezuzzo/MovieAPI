@@ -5,7 +5,7 @@ const helmet = require('helmet');
 const app = express();
 const port = 5000;
 
-const apiKey = 'APIKEY' //substituir pela api-key
+const apiKey = 'API' //substituir pela api-key
 
 // Use CORS middleware
 app.use(cors({
@@ -49,6 +49,20 @@ app.get('/api/movies', async (req, res) => {
         res.json(sortedMovies);
     } catch (error) {
         console.error('Erro ao buscar os dados da API:', error);
+        res.status(500).json({ error: 'Erro ao buscar os dados da API' });
+    }
+});
+
+//nova rota para obter detalhes do filme pelo id
+app.get('/api/movie/:id', async (req, res) => {
+    const movieId = req.params.id;
+    const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`;
+
+    try {
+        const response = await axios.get(apiUrl);
+        res.json(response.data);
+    } catch (error) {
+        console.log('erro:', error);
         res.status(500).json({ error: 'Erro ao buscar os dados da API' });
     }
 });
